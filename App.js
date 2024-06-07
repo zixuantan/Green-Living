@@ -19,12 +19,14 @@
 //   },
 // });
 
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Homepage from './components/HomePage';
-import Dashboard1 from './components/Dashboard1';
-import Rewards1 from './components/Rewards1';
+//test
+
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Homepage from "./components/HomePage";
+import Dashboard1 from "./components/Dashboard1";
+import Rewards1 from "./components/Rewards1";
 
 const Stack = createStackNavigator();
 
@@ -39,9 +41,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-
-
-
-
-
