@@ -32,9 +32,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="HomePage">
-        <Stack.Screen name="HomePage" component={Homepage} />
-        <Stack.Screen name="Dashboard1" component={Dashboard1} />
-        <Stack.Screen name="Rewards1" component={Rewards1} />
+        <Stack.Screen name="HomePage" options={{headerShown: false}} component={Homepage} />
+        <Stack.Screen name="Dashboard1" options={{headerShown: false}} component={Dashboard1} />
+        <Stack.Screen name="Rewards1" options={{headerShown: false}} component={Rewards1} />
       </Stack.Navigator>
     </NavigationContainer>
   );

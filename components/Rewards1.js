@@ -1,12 +1,46 @@
 // RewardsPage.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView } from 'react-native';
+import {Picker} from '@react-native-picker/picker'
+import { Ionicons } from '@expo/vector-icons'; 
+import { useState } from 'react';
+import { Touchable } from 'react-native';
 
-const Rewards1 = () => {
+const Rewards1 = ({ navigation }) => {
+
+  function handleGoBack(){
+    navigation.goBack();
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Rewards Page</Text>
-    </View>
+    <ScrollView>
+
+      <View style={styles.container}>
+
+        <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
+          <Ionicons 
+          name="chevron-back-outline" 
+          size={36} 
+          color="black"
+          style={{marginHorizontal:15}}
+          />
+        </TouchableOpacity>
+
+        
+        <Text style={styles.title}>Rewards Page</Text>
+     
+
+
+
+
+      </View>
+
+      
+
+
+
+    </ScrollView>
+
   );
 }
 
@@ -16,6 +50,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
+  title: {
+    marginTop: 70,
+    fontSize: 28,
+
+  },
+
+  backButton : {
+    position: 'absolute',
+    top: 60,
+    left: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+  },
+
+
+
 });
 
 export default Rewards1;
