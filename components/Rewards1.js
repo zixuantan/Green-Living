@@ -5,6 +5,7 @@ import {Picker} from '@react-native-picker/picker'
 import { Ionicons } from '@expo/vector-icons'; 
 import { useState } from 'react';
 import { Touchable } from 'react-native';
+import Ring from './Ring';
 
 const Rewards1 = ({ navigation }) => {
 
@@ -26,14 +27,18 @@ const Rewards1 = ({ navigation }) => {
           />
         </TouchableOpacity>
 
-        
         <Text style={styles.title}>Rewards Page</Text>
-     
-
-
 
 
       </View>
+
+      <View style={[styles.container, { justifyContent: 'center', alignItems: 'center', paddingTop: 60 }]}>
+
+      <Ring size={275} strokeWidth={20} color="green" text="Your Text Here"/>
+
+      </View>
+
+
 
       
 
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 70,
     fontSize: 28,
-
+    fontFamily: 'Nunito-Bold',
   },
 
   backButton : {
