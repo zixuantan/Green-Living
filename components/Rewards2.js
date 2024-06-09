@@ -9,11 +9,15 @@ import {
   Image
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import Ring from './Ring';
+import { AntDesign } from '@expo/vector-icons';
 
 const Rewards2 = ({ navigation }) => {
   function handleGoBack() {
     navigation.goBack();
+  }
+
+  function returnHome(){
+    navigation.navigate('HomePage')
   }
 
   const [sprouts, setSprouts] = useState(2000); // Initial number of sprouts
@@ -230,6 +234,12 @@ const Rewards2 = ({ navigation }) => {
         <TouchableOpacity style={styles.nextButton}>
           <Text style={styles.buttonText}>Get eVouchers</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.homeButton} onPress={returnHome}>
+          <Text style={styles.buttonText}>Return Home  </Text>
+          <AntDesign name="home" size={24} color="black" />
+        </TouchableOpacity>
+
       </View>
     </ScrollView>
   );
@@ -285,6 +295,17 @@ const styles = StyleSheet.create({
     marginTop: 70,
     alignItems: 'center',
     width: 300
+  },
+
+  homeButton: {
+    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 30,
+    alignItems: 'center',
+    width: 260,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 
   buttonText: {

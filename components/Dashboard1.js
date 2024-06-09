@@ -12,11 +12,11 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Dashboard1 = ({ navigation }) => {
   function handleGoBack() {
-    navigation.navigate('Rewards1');
+    navigation.goBack();
   }
 
   function handleRewardsNav(){
-    navigation.go
+    navigation.navigate('Rewards1')
   }
 
   return (
@@ -37,35 +37,70 @@ const Dashboard1 = ({ navigation }) => {
         
 
         <View style={styles.rowContainer}>
-          <Text>Your Carbon Footprint this month from Shopping:</Text>
-          <Text>400kg CO2e</Text>
-          <Text>That's 15% more than the average person!</Text>
+          <Image
+            source={require('../utils/meter.png')}
+            style={{ width: 150*1.25, height: 82.64*1.25, marginTop:50 }}
+          />
+          <Text style={{marginTop: 50, fontSize: 17}}>Your Carbon Footprint from Shopping:</Text>
+          <Text style={{marginTop: 20, fontSize: 35, fontWeight: '600'}}>400kg CO2e</Text>
+          <Text style={{marginTop: 20, fontSize: 17}}>this month</Text>
+          <Text style={{marginTop: 20, fontSize: 15}}>That's 15% more than the average person!</Text>
 
         </View>
 
-        <View style={styles.rowContainer}>
-          <Text>You're fast approaching your monthly targeted</Text>
-          <Text>resource use limit of</Text>
-          <View style={{flexDirection: 'row'}}>
-            <Text>2000L</Text>
-            <Text>Water and</Text>
-            <Text>150kWh</Text>
-            <Text>Energy</Text>
+        <View style={styles.specialContainer}>
+          <View style={{flexDirection: 'row', marginTop: 50, justifyContent: 'space-between', alignItems: 'center'}}>
+          <Image
+            source={require('../utils/water.png')}
+            style={{ width: 85, height: 126, marginLeft: 30 }}
+          />
+          <Image
+            source={require('../utils/electricity.png')}
+            style={{ width: 93, height: 126, marginRight: 30}}
+          />
           </View>
-          <Text>Be mindful of your purchases!</Text>
+
+          <View style={{ alignItems: 'center' }}>
+            <Text style={{ marginTop: 50, fontSize: 17 }}>You're fast approaching your monthly</Text>
+            <Text style={{ marginTop: 10, fontSize: 17 }}>targeted resource use limit of</Text>
+
+            <View style={{ flexDirection: 'row', marginTop: 40 }}>
+              <Text style={{ fontSize: 17 }}>
+                <Text style={{ fontSize: 30, fontWeight: '600' }}>2000L</Text> 
+                <Text style={{ fontSize: 30 }}> & </Text> 
+
+                <Text style={{ fontSize: 30, fontWeight: '600' }}>150kWh</Text> 
+              </Text>
+            </View>
+
+            <View style={{ flexDirection: 'row', marginTop: 2, justifyContent: 'space-between' }}>
+              <Text style={{ fontSize: 15 }}> Water                     </Text> 
+              <Text style={{ fontSize: 15 }}>  Energy    </Text>
+            </View>
+
+            <Text style={{ fontSize: 17, marginTop: 20 }}>Be mindful of your purchases!</Text>
+          </View>
   
         </View>
 
         <View style={styles.rowContainer}>
-          <Text>You've helped to avoid</Text>
-          <Text>20kg</Text>
-          <Text>of waste</Text>
-          <Text>(that's more than 50% of users!)</Text>
+          <Image
+            source={require('../utils/bar.png')}
+            style={{ width: 227, height: 40.13, marginTop: 40 }}
+          />
+          <Text style={{marginTop: 30, fontSize: 20}}>You've helped to avoid</Text>
+          <Text style={{marginTop: 15, fontSize: 40, fontWeight: '600'}}>20kg</Text>
+          <Text style={{marginTop: 10, fontSize: 20}}>of waste</Text>
+          <Text style={{marginTop: 20}}>(that's more than 50% of users!)</Text>
         </View>
 
         <View style={styles.rowContainer}>
-          <Text>Your purchase-drive</Text>
-          <Text>carbon footprint over time</Text>
+          <Text style={{marginTop: 20, fontSize: 25}}>Your Purchase-Driven</Text>
+          <Text style={{fontSize: 25}}>Carbon Footprint (CO2e)</Text>
+          <Image
+            source={require('../utils/linechart-frame-302.png')}
+            style={{ width: 250*1.2, height: 200*1.2, marginTop: 40 }}
+          />
  
         </View>
 
@@ -101,17 +136,27 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: 0.3,
     shadowRadius: 5,
-    paddingBottom: 100
+    paddingBottom: 60
   },
 
   rowContainer: {
     backgroundColor: 'rgba(211, 211, 211, 0.5)',
     borderRadius: 10,
-    padding: 10,
+    padding: 1,
     alignItems: 'center',
     width: 310,
     marginBottom: 40,
-    paddingBottom: 100
+    paddingBottom: 30
+
+  },
+
+  specialContainer: {
+    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    borderRadius: 10,
+    padding: 1,
+    width: 310,
+    marginBottom: 40,
+    paddingBottom: 20
 
   },
 
@@ -121,13 +166,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito-Bold'
   },
 
-
   nextButton: {
     backgroundColor: 'rgba(211, 211, 211, 0.5)',
     borderRadius: 10,
     padding: 10,
     width: 250,
-    marginTop: 70,
+    marginTop: 20,
     alignItems: 'center',
     width: 300
   },
