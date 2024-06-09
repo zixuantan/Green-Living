@@ -1,13 +1,20 @@
-import React, {useState} from 'react';
-import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; 
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+  ScrollView,
+  Image
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import Ring from './Ring';
 
 const Rewards2 = ({ navigation }) => {
-
-  function handleGoBack(){
+  function handleGoBack() {
     navigation.goBack();
-  };
+  }
 
   const [sprouts, setSprouts] = useState(2000); // Initial number of sprouts
   const [vouchers5, setVouchers5] = useState(0); // Counter for $5 vouchers
@@ -43,102 +50,194 @@ const Rewards2 = ({ navigation }) => {
     <ScrollView style={styles.scrollView}>
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-          <Ionicons 
-            name="chevron-back-outline" 
-            size={36} 
-            color="black"
-            style={{marginHorizontal:15}}
+          <Ionicons
+            name='chevron-back-outline'
+            size={36}
+            color='black'
+            style={{ marginHorizontal: 15 }}
           />
         </TouchableOpacity>
         <Text style={styles.title}>Rewards Page</Text>
       </View>
 
       <View style={styles.contentContainer}>
- 
-
         <View style={styles.rowContainer}>
-        <Image
-          source={require("../utils/sprout.png")} style={{width: 30, height: 30}} />
-        <Text style={{fontSize: 25, fontWeight: '200'}}>  {sprouts} sprouts</Text>
-        
+          <Image
+            source={require('../utils/sprout.png')}
+            style={{ width: 30, height: 30 }}
+          />
+          <Text style={{ fontSize: 25, fontWeight: '200' }}>
+            {' '}
+            {sprouts} sprouts
+          </Text>
         </View>
 
-
-
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 150 }}>
-            <View style={{ marginRight: 100 }}>
-                <Text style={{ fontSize: 20, fontWeight: '500' }}>$5 eVoucher</Text>
-                <Text style={{ fontSize: 20, fontWeight: '200' }}>200 sprouts</Text>
-            </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: 10, padding: 2, width: 100, marginRight:5 }}>
-                <TouchableOpacity style={{ minWidth: 30, minHeight: 30, justifyContent: 'center', alignItems: 'center' }} onPress={() => subtractVouchers(5, 200, 5)}>
-                <Text style={{ fontSize: 20 }}>-</Text>
-                </TouchableOpacity>
-                <View style={{ height: '100%', width: 1, backgroundColor: 'rgba(0, 0, 0, 0.3)', marginHorizontal: 5 }} />
-                <TouchableOpacity style={{ minWidth: 30, minHeight: 30, justifyContent: 'center', alignItems: 'center' }} onPress={() => {
+        <View
+          style={{ flexDirection: 'row', alignItems: 'center', marginTop: 150 }}
+        >
+          <View style={{ marginRight: 100 }}>
+            <Text style={{ fontSize: 20, fontWeight: '500' }}>$5 eVoucher</Text>
+            <Text style={{ fontSize: 20, fontWeight: '200' }}>200 sprouts</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              borderRadius: 10,
+              padding: 2,
+              width: 100,
+              marginRight: 5
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                minWidth: 30,
+                minHeight: 30,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+              onPress={() => subtractVouchers(5, 200, 5)}
+            >
+              <Text style={{ fontSize: 20 }}>-</Text>
+            </TouchableOpacity>
+            <View
+              style={{
+                height: '100%',
+                width: 1,
+                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                marginHorizontal: 5
+              }}
+            />
+            <TouchableOpacity
+              style={{
+                minWidth: 30,
+                minHeight: 30,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+              onPress={() => {
                 setVouchers5(vouchers5 + 1);
                 redeemVoucher(5, 200);
-                }} disabled={sprouts < 200}>
-                <Text style={{ fontSize: 20 }}>+</Text>
-                </TouchableOpacity>
-            </View>
-            <Text style={{ fontSize: 18, fontWeight: '500', marginRight: 5, marginLeft: 5 }}>{vouchers5}</Text>
+              }}
+              disabled={sprouts < 200}
+            >
+              <Text style={{ fontSize: 20 }}>+</Text>
+            </TouchableOpacity>
+          </View>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: '500',
+              marginRight: 5,
+              marginLeft: 5
+            }}
+          >
+            {vouchers5}
+          </Text>
         </View>
 
-
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 40 }}>
-            <View style={{ marginRight: 90 }}>
-                <Text style={{ fontSize: 20, fontWeight: '500' }}>$10 eVoucher</Text>
-                <Text style={{ fontSize: 20, fontWeight: '200'  }}>350 sprouts</Text>
-            </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: 10, padding: 2, width: 100, marginRight: 5 }}>
-                <TouchableOpacity style={{ minWidth: 30, minHeight: 30, justifyContent: 'center', alignItems: 'center' }} onPress={() => subtractVouchers(10, 350, 10)}>
-                <Text style={{ fontSize: 20 }}>-</Text>
-                </TouchableOpacity>
-                <View style={{ height: '100%', width: 1, backgroundColor: 'rgba(0, 0, 0, 0.3)', marginHorizontal: 5 }} />
-                <TouchableOpacity style={{ minWidth: 30, minHeight: 30, justifyContent: 'center', alignItems: 'center' }} onPress={() => {
+        <View
+          style={{ flexDirection: 'row', alignItems: 'center', marginTop: 40 }}
+        >
+          <View style={{ marginRight: 90 }}>
+            <Text style={{ fontSize: 20, fontWeight: '500' }}>
+              $10 eVoucher
+            </Text>
+            <Text style={{ fontSize: 20, fontWeight: '200' }}>350 sprouts</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              borderRadius: 10,
+              padding: 2,
+              width: 100,
+              marginRight: 5
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                minWidth: 30,
+                minHeight: 30,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+              onPress={() => subtractVouchers(10, 350, 10)}
+            >
+              <Text style={{ fontSize: 20 }}>-</Text>
+            </TouchableOpacity>
+            <View
+              style={{
+                height: '100%',
+                width: 1,
+                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                marginHorizontal: 5
+              }}
+            />
+            <TouchableOpacity
+              style={{
+                minWidth: 30,
+                minHeight: 30,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+              onPress={() => {
                 setVouchers10(vouchers10 + 1);
                 redeemVoucher(10, 350);
-                }} disabled={sprouts < 350}>
-                <Text style={{ fontSize: 20 }}>+</Text>
-                </TouchableOpacity>
-            </View>
-            <Text style={{ fontSize: 18, fontWeight: '500', marginRight: 5, marginLeft: 5 }}>{vouchers10}</Text>
+              }}
+              disabled={sprouts < 350}
+            >
+              <Text style={{ fontSize: 20 }}>+</Text>
+            </TouchableOpacity>
+          </View>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: '500',
+              marginRight: 5,
+              marginLeft: 5
+            }}
+          >
+            {vouchers10}
+          </Text>
         </View>
 
-        <View style={{ height: 1, backgroundColor: 'black', width: '90%', marginTop: 60 }} />
+        <View
+          style={{
+            height: 1,
+            backgroundColor: 'black',
+            width: '90%',
+            marginTop: 60
+          }}
+        />
 
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 50, marginRight: 240 }}> 
-
-        <Text style={{fontSize: 17, fontWeight: '600'}}>Total       </Text>
-        <Text style={{fontSize: 17, fontWeight: '200'}}>${redeemed}</Text>
-
-
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginTop: 50,
+            marginRight: 240
+          }}
+        >
+          <Text style={{ fontSize: 17, fontWeight: '600' }}>Total </Text>
+          <Text style={{ fontSize: 17, fontWeight: '200' }}>${redeemed}</Text>
         </View>
-
-
-   
-
-
 
         <TouchableOpacity style={styles.nextButton}>
-
           <Text style={styles.buttonText}>Get eVouchers</Text>
-
-
         </TouchableOpacity>
-
-
       </View>
-
-      
     </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#A4F59D',
+    backgroundColor: '#A4F59D'
   },
   headerContainer: {
     justifyContent: 'center',
@@ -151,23 +250,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 40,
-    borderRadius: 10, 
-    backgroundColor: 'white', 
-    margin: 20, 
-    elevation: 5, 
-    shadowColor: 'black', 
-    shadowOpacity: 0.3, 
-    shadowRadius: 5, 
+    borderRadius: 10,
+    backgroundColor: 'white',
+    margin: 20,
+    elevation: 5,
+    shadowColor: 'black',
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
     paddingBottom: 100
   },
 
-  rowContainer : {
+  rowContainer: {
     flexDirection: 'row',
     backgroundColor: 'rgba(211, 211, 211, 0.5)',
     borderRadius: 10,
-    padding: 10, 
+    padding: 10,
     alignItems: 'center',
-    width : 280,
+    width: 280,
     marginTop: 20,
     justifyContent: 'center'
   },
@@ -175,14 +274,14 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 20,
     fontSize: 28,
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'Nunito-Bold'
   },
 
-  nextButton : {
+  nextButton: {
     backgroundColor: 'rgba(211, 211, 211, 0.5)',
     borderRadius: 10,
-    padding: 10, 
-    width : 250,
+    padding: 10,
+    width: 250,
     marginTop: 70,
     alignItems: 'center',
     width: 300
@@ -193,15 +292,14 @@ const styles = StyleSheet.create({
     fontWeight: '600'
   },
 
-
   backButton: {
     position: 'absolute',
     top: 20,
     left: 10,
     padding: 10,
     borderRadius: 5,
-    paddingTop: 40,
-  },
+    paddingTop: 40
+  }
 });
 
 export default Rewards2;
