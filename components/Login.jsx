@@ -81,15 +81,20 @@ const initialValues = {
   password: ''
 };
 
-const Login = () => {
+const Login = ({navigation}) => {
   const onSubmit = async (values) => {
     const { username, password } = values;
     try {
       console.log(values);
+      navigation.navigate('HomePage')
     } catch (e) {
       console.log(e);
     }
   };
+
+  const create=()=>{
+    navigation.navigate('SignUp')
+  }
 
   const formik = useFormik({
     initialValues,
@@ -136,9 +141,9 @@ const Login = () => {
         </Pressable>
         <Text style={styles.signUpText}> No account yet?</Text>
         <Text style={styles.signUpText}>
-          Click{' '}
-          <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>
-            here{' '}
+          Click{" "}
+          <Text onPress={create} style={{ color: "blue", textDecorationLine: "underline" }}>
+            here{" "}
           </Text>
           to sign up!
         </Text>
