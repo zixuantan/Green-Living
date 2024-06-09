@@ -27,6 +27,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Homepage from "./components/HomePage";
 import Dashboard1 from "./components/Dashboard1";
 import Rewards1 from "./components/Rewards1";
+import Rewards2 from "./components/Rewards2"
 import Login from "./components/Login";
 import Chatbot from "./components/Chatbot";
 import SignUp from './components/SignUp';
@@ -45,6 +46,8 @@ export default function App() {
         <Stack.Screen name="Chatbot" options={{headerShown: false}} component={Chatbot} />
         <Stack.Screen name="Dashboard1" options={{headerShown: false}} component={Dashboard1} />
         <Stack.Screen name="Rewards1" options={{headerShown: false}} component={Rewards1} />
+        <Stack.Screen name="Rewards2" options={{headerShown: false}} component={Rewards2} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
