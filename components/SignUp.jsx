@@ -113,8 +113,7 @@ const SignUp = () => {
             formik.touched.email && formik.errors.email && styles.errorInput
           ]}
           value={formik.values.email}
-          onChangeText={formik.handleChange('email')}
-          secureTextEntry
+          onChangeText={formik.handleChange("email")}
         />
         {formik.touched.email && formik.errors.email && (
           <Text style={{ color: 'red' }}>{formik.errors.email}</Text>
@@ -142,7 +141,8 @@ const SignUp = () => {
               styles.errorInput
           ]}
           value={formik.values.password}
-          onChangeText={formik.handleChange('password')}
+          onChangeText={formik.handleChange("password")}
+          secureTextEntry
         />
         {formik.touched.password && formik.errors.password && (
           <Text style={{ color: 'red' }}>{formik.errors.password}</Text>
