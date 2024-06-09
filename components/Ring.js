@@ -2,7 +2,12 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import Svg, { Circle, Text, TextPath, Path, Defs } from 'react-native-svg';
 
-const Ring = ({ size = 200, strokeWidth = 20, color = 'black', text = 'Curved Text' }) => {
+const Ring = ({
+  size = 200,
+  strokeWidth = 20,
+  color = 'black',
+  text = 'Curved Text'
+}) => {
   const radius = (size - strokeWidth) / 2;
   const halfSize = size / 2;
   const textPathId = 'textPath';
@@ -19,24 +24,30 @@ const Ring = ({ size = 200, strokeWidth = 20, color = 'black', text = 'Curved Te
         </Defs>
         <Circle
           stroke={color}
-          fill="none"
+          fill='none'
           cx={halfSize}
           cy={halfSize}
           r={radius}
           strokeWidth={strokeWidth}
         />
         <Image
-          source={require("../utils/sprout.png")}
+          source={require('../utils/sprout.png')}
           style={{
             position: 'absolute',
             top: halfSize - 40, // Adjust as needed
             left: halfSize - 30, // Adjust as needed
             width: 60, // Adjust as needed
-            height: 60, // Adjust as needed
+            height: 60 // Adjust as needed
           }}
         />
-        <Text fill="black" fontSize={39} textAnchor="middle"   transform={`rotate(90 ${halfSize} ${halfSize})`} y="-20"> 
-          <TextPath href={`#${textPathId}`} startOffset="50%">
+        <Text
+          fill='black'
+          fontSize={39}
+          textAnchor='middle'
+          transform={`rotate(90 ${halfSize} ${halfSize})`}
+          y='-20'
+        >
+          <TextPath href={`#${textPathId}`} startOffset='50%'>
             {text}
           </TextPath>
         </Text>
@@ -46,12 +57,3 @@ const Ring = ({ size = 200, strokeWidth = 20, color = 'black', text = 'Curved Te
 };
 
 export default Ring;
-
-
-
-
-
-
-
-
-
