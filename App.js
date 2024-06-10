@@ -5,6 +5,8 @@ import Login from './components/Login';
 import Chatbot from './components/Chatbot';
 import SignUp from './components/SignUp';
 import Launch from './components/Launch';
+// import Scanner1 from './components/Scanner1';
+// import Scanner2 from './components/Scanner2';
 import BottomTabNavigator from './components/BottomTabNavigator';
 
 const Stack = createStackNavigator();
@@ -38,6 +40,16 @@ export default function App() {
           options={{ headerShown: false }}
           component={BottomTabNavigator}
         />
+        {/* <Stack.Screen
+          name='Scanner1'
+          options={{ headerShown: false }}
+          component={Scanner1}
+        />
+        <Stack.Screen
+          name='Scanner2'
+          options={{ headerShown: false }}
+          component={Scanner2}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

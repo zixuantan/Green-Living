@@ -28,6 +28,10 @@ const Homepage = ({ navigation }) => {
         title='Go to Chatbot'
         onPress={() => navigation.navigate('Chatbot')}
       />
+      <Button
+        title='Go to Scanner'
+        onPress={() => navigation.navigate('Scanner1')}
+      />
     </View>
   );
 };
