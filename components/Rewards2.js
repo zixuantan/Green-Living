@@ -16,8 +16,8 @@ const Rewards2 = ({ navigation }) => {
     navigation.goBack();
   }
 
-  function returnHome(){
-    navigation.navigate('HomePage')
+  function returnHome() {
+    navigation.navigate('HomePage');
   }
 
   const [sprouts, setSprouts] = useState(2000); // Initial number of sprouts
@@ -236,10 +236,9 @@ const Rewards2 = ({ navigation }) => {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.homeButton} onPress={returnHome}>
-          <Text style={styles.buttonText}>Return Home  </Text>
-          <AntDesign name="home" size={24} color="black" />
+          <Text style={styles.buttonText}>Return Home </Text>
+          <AntDesign name='home' size={24} color='black' />
         </TouchableOpacity>
-
       </View>
     </ScrollView>
   );
@@ -305,7 +304,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 260,
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 
   buttonText: {

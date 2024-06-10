@@ -1,51 +1,20 @@
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View } from 'react-native';
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
-
-//test
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Homepage from './components/HomePage';
-import Dashboard1 from './components/Dashboard1';
-import Rewards1 from './components/Rewards1';
-import Rewards2 from './components/Rewards2';
 import Login from './components/Login';
 import Chatbot from './components/Chatbot';
 import SignUp from './components/SignUp';
 import Launch from './components/Launch';
-import Scanner1 from './components/Scanner1';
-import Scanner2 from './components/Scanner2';
+// import Scanner1 from './components/Scanner1';
+// import Scanner2 from './components/Scanner2';
+import BottomTabNavigator from './components/BottomTabNavigator';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='HomePage'>
-        <Stack.Screen
-          name='HomePage'
-          options={{ headerShown: false }}
-          component={Homepage}
-        />
+      <Stack.Navigator initialRouteName='Launch'>
         <Stack.Screen
           name='Launch'
           options={{ headerShown: false }}
@@ -67,21 +36,11 @@ export default function App() {
           component={Chatbot}
         />
         <Stack.Screen
-          name='Dashboard1'
+          name='Main'
           options={{ headerShown: false }}
-          component={Dashboard1}
+          component={BottomTabNavigator}
         />
-        <Stack.Screen
-          name='Rewards1'
-          options={{ headerShown: false }}
-          component={Rewards1}
-        />
-        <Stack.Screen
-          name='Rewards2'
-          options={{ headerShown: false }}
-          component={Rewards2}
-        />
-          <Stack.Screen
+        {/* <Stack.Screen
           name='Scanner1'
           options={{ headerShown: false }}
           component={Scanner1}
@@ -90,7 +49,7 @@ export default function App() {
           name='Scanner2'
           options={{ headerShown: false }}
           component={Scanner2}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

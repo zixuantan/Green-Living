@@ -10,6 +10,8 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
+const logoIcon = require('../utils/default.png');
+
 const validationSchema = yup
   .object()
   .shape({
@@ -74,11 +76,12 @@ const initialValues = {
   password: ''
 };
 
-const SignUp = () => {
+const SignUp = ({ navigation }) => {
   const onSubmit = async (values) => {
     const { name, email, phoneNumber, password } = values;
     try {
       console.log(values);
+      navigation.replace('MainPage');
     } catch (e) {
       console.log(e);
     }
@@ -93,7 +96,7 @@ const SignUp = () => {
   return (
     <View style={styles.container}>
       <View style={styles.formContainer}>
-        <Image style={styles.image} source={require('../utils/default.png')} />
+        <Image style={styles.image} source={logoIcon} />
         <Text style={{ width: '80%', fontSize: 20 }}>Name</Text>
         <TextInput
           style={[
@@ -113,7 +116,7 @@ const SignUp = () => {
             formik.touched.email && formik.errors.email && styles.errorInput
           ]}
           value={formik.values.email}
-          onChangeText={formik.handleChange("email")}
+          onChangeText={formik.handleChange('email')}
         />
         {formik.touched.email && formik.errors.email && (
           <Text style={{ color: 'red' }}>{formik.errors.email}</Text>
@@ -141,7 +144,7 @@ const SignUp = () => {
               styles.errorInput
           ]}
           value={formik.values.password}
-          onChangeText={formik.handleChange("password")}
+          onChangeText={formik.handleChange('password')}
           secureTextEntry
         />
         {formik.touched.password && formik.errors.password && (
