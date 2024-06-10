@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-native';
 import {
   Text,
   View,
@@ -11,10 +10,15 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-const validationSchema = yup.object().shape({
-  username: yup.string().required('Email/Phone Number is required'),
-  password: yup.string().required('Password is required')
-});
+const logoIcon = require('../utils/default.png');
+
+const validationSchema = yup
+  .object()
+  .shape({
+    username: yup.string().required('Email/Phone Number is required'),
+    password: yup.string().required('Password is required')
+  })
+  .strict();
 
 const styles = StyleSheet.create({
   container: {
@@ -81,20 +85,19 @@ const initialValues = {
   password: ''
 };
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   const onSubmit = async (values) => {
     const { username, password } = values;
-    try {
-      console.log(values);
-      navigation.navigate('HomePage')
-    } catch (e) {
-      console.log(e);
+    if (username === 'a' && password === 'a') {
+      navigation.replace('Main');
+    } else {
+      console.log('credentials incorrect!!');
     }
   };
 
-  const create=()=>{
-    navigation.navigate('SignUp')
-  }
+  const create = () => {
+    navigation.navigate('SignUp');
+  };
 
   const formik = useFormik({
     initialValues,
@@ -105,7 +108,7 @@ const Login = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.formContainer}>
-        <Image style={styles.image} source={require('../utils/default.png')} />
+        <Image style={styles.image} source={logoIcon} />
         <Text style={{ width: '80%', fontSize: 20 }}>Email/Phone Number</Text>
         <TextInput
           style={[
@@ -141,10 +144,13 @@ const Login = ({navigation}) => {
         </Pressable>
         <Text style={styles.signUpText}> No account yet?</Text>
         <Text style={styles.signUpText}>
-          Click{" "}
-          <Text onPress={create} style={{ color: "blue", textDecorationLine: "underline" }}>
-            here{" "}
-          </Text>
+          Click{' '}
+          <Text
+            onPress={create}
+            style={{ color: 'blue', textDecorationLine: 'underline' }}
+          >
+            here
+          </Text>{' '}
           to sign up!
         </Text>
       </View>
