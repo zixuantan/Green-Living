@@ -40,7 +40,7 @@ const BottomTabNavigator = () => {
       })}
       tabBarOptions={{ activeTintColor: 'tomato', inactiveTintColor: 'gray' }}
     >
-      <Tab.Screen name='MainPage' component={MainPage} />
+      <Tab.Screen name='Home' component={MainPage} />
       <Tab.Screen name='Shopping' component={Dashboard1} />
       <Tab.Screen name='Dashboard' component={Dashboard1} />
       <Tab.Screen name='Camera' component={Scanner1} />
