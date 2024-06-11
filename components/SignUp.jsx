@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { signUpUser } from '../services/LoginService';
 
 const logoIcon = require('../utils/default.png');
 
@@ -78,12 +79,18 @@ const initialValues = {
 
 const SignUp = ({ navigation }) => {
   const onSubmit = async (values) => {
-    const { name, email, phoneNumber, password } = values;
+    const { email, password } = values;
     try {
-      console.log(values);
-      navigation.replace('Main');
+      signUpUser(email, password, (err, result) => {
+        if (err) {
+          console.error('Signup failed:', err);
+          return;
+        }
+        console.log('Signup success:', result);
+        navigation.replace('Login');
+      });
     } catch (e) {
-      console.log(e);
+      console.log('An error occurred:', e);
     }
   };
 
