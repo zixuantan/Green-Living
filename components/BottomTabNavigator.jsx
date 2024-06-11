@@ -5,6 +5,8 @@ import Rewards1 from './Rewards1';
 import Rewards2 from './Rewards2';
 import MainPage from './MainPage';
 import Scanner1 from './Scanner1';
+import ShoppingPage from './ShoppingPage';
+import CartPage from './CartPage';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,11 +43,12 @@ const BottomTabNavigator = () => {
       tabBarOptions={{ activeTintColor: 'tomato', inactiveTintColor: 'gray' }}
     >
       <Tab.Screen name='Home' component={MainPage} />
-      <Tab.Screen name='Shopping' component={Dashboard1} />
+      <Tab.Screen name='Shopping' component={CartPage} />
       <Tab.Screen name='Dashboard' component={Dashboard1} />
       <Tab.Screen name='Camera' component={Scanner1} />
       <Tab.Screen name='Rewards' component={Rewards1} />
-      <Tab.Screen name='Info' component={Rewards2} />
+      <Tab.Screen name='Info' component={Rewards2} /> 
+      {/* change to user profile page */}
     </Tab.Navigator>
   );
 };

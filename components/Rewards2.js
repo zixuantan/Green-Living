@@ -17,7 +17,7 @@ const Rewards2 = ({ navigation }) => {
   }
 
   function returnHome() {
-    navigation.navigate('HomePage');
+    navigation.navigate('Home');
   }
 
   const [sprouts, setSprouts] = useState(2000); // Initial number of sprouts

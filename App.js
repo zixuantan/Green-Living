@@ -5,8 +5,8 @@ import Login from './components/Login';
 import Chatbot from './components/Chatbot';
 import SignUp from './components/SignUp';
 import Launch from './components/Launch';
-// import Scanner1 from './components/Scanner1';
-// import Scanner2 from './components/Scanner2';
+import Scanner1 from './components/Scanner1';
+import Scanner2 from './components/Scanner2';
 import BottomTabNavigator from './components/BottomTabNavigator';
 import { CartProvider } from './components/CartContext';
 import ShoppingPage from './components/ShoppingPage';
@@ -44,7 +44,7 @@ export default function App() {
             options={{ headerShown: false }}
             component={BottomTabNavigator}
           />
-          {/* <Stack.Screen
+          <Stack.Screen
             name='Scanner1'
             options={{ headerShown: false }}
             component={Scanner1}
@@ -53,7 +53,7 @@ export default function App() {
             name='Scanner2'
             options={{ headerShown: false }}
             component={Scanner2}
-          /> */}
+          />
           <Stack.Screen 
               name="ShoppingPage"
               options = {{headerShown: false}}

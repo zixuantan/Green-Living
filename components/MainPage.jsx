@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, TextInput } from 'react-native';
+import { View, StyleSheet, ScrollView, TextInput, Text } from 'react-native';
 
 const MainPage = ({ navigation }) => {
   const handleChatbotNav = () => {
@@ -16,7 +16,7 @@ const MainPage = ({ navigation }) => {
             onFocus={handleChatbotNav}
           />
         </View>
-        <View>Helloooo</View>
+        <Text>Helloooo</Text>
       </ScrollView>
     </>
   );
@@ -35,14 +35,15 @@ const styles = StyleSheet.create({
     elevation: 5,
     shadowColor: 'black',
     shadowOpacity: 0.3,
-    shadowRadius: 5
+    shadowRadius: 5,
+    marginTop: 80
   },
 
   searchInput: {
     height: 40,
     paddingLeft: 8,
     textAlign: 'center',
-    color: 'gray'
+    color: 'gray',
   }
 });
 

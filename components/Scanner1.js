@@ -9,15 +9,6 @@ export default function Scanner1() {
   const [scanned, setScanned] = useState(false);
   const navigation = useNavigation(); // Access navigation object
 
-  function handleGoBack() {
-    console.log('Back button pressed');
-    navigation.goBack();
-  }
-
-  function handleNext() {
-    navigation.navigate('Scanner2');
-  }
-
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -25,14 +16,22 @@ export default function Scanner1() {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }) => {
+  const handleBarCodeScanned = async ({ type, data }) => {
     if (!type || !data) {
       console.error('Invalid barcode scan data');
       return;
     }
     setScanned(true);
-    Alert.alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    navigation.navigate('Scanner2', { type, data });
+
+    try {
+      const response = await fetch(data); // Fetch JSON data from the URL
+      const receiptData = await response.json();
+      // Alert.alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+      navigation.navigate('Scanner2', { receiptData }); // Navigate to the Scanner2 page with the fetched data
+    } catch (error) {
+      console.error('Error fetching receipt data:', error);
+      Alert.alert('Error', 'Failed to fetch receipt data.');
+    }
   };
 
   if (hasPermission === null) {
@@ -53,7 +52,7 @@ export default function Scanner1() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
           <Ionicons
             name='chevron-back-outline'
             size={36}
