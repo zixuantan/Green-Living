@@ -81,7 +81,7 @@ const SignUp = ({ navigation }) => {
     const { name, email, phoneNumber, password } = values;
     try {
       console.log(values);
-      navigation.replace('MainPage');
+      navigation.replace('Main');
     } catch (e) {
       console.log(e);
     }
