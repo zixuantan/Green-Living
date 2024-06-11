@@ -30,7 +30,8 @@ import Rewards1 from "./components/Rewards1";
 import Login from "./components/Login";
 import Chatbot from "./components/Chatbot";
 import SignUp from './components/SignUp';
-import Launch from './components/Launch'
+import Launch from './components/Launch';
+import UserInfo from './components/UserInfo'
 
 const Stack = createStackNavigator();
 
@@ -45,6 +46,7 @@ export default function App() {
         <Stack.Screen name="Chatbot" options={{headerShown: false}} component={Chatbot} />
         <Stack.Screen name="Dashboard1" options={{headerShown: false}} component={Dashboard1} />
         <Stack.Screen name="Rewards1" options={{headerShown: false}} component={Rewards1} />
+        <Stack.Screen name="UserInfo" options={{headerShown: false}} component={UserInfo} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -10,6 +10,7 @@ const Homepage = ({ navigation }) => {
       <Button title="Go to Login" onPress={() => navigation.navigate('Login')} />
       <Button title="Go to Sign Up" onPress={() => navigation.navigate('SignUp')} />
       <Button title="Go to Chatbot" onPress={() => navigation.navigate('Chatbot')} />
+      <Button title="Go to UserInfo" onPress={() => navigation.navigate('UserInfo')} />
     </View>
   );
 }
