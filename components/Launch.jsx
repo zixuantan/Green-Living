@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 const Launch = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Login');
+      navigation.replace('Main');
     }, 2000);
 
     return () => clearTimeout(timer);

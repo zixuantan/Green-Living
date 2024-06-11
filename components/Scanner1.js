@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, Alert, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useContext } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Alert,
+  TouchableOpacity
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useNavigation } from '@react-navigation/native';
+import { UserPointsContext } from '../hooks/userPointsContext';
 
 export default function Scanner1() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const navigation = useNavigation(); // Access navigation object
+  const { setUserPoints } = useContext(UserPointsContext);
 
   useEffect(() => {
     (async () => {
@@ -27,6 +36,7 @@ export default function Scanner1() {
       const response = await fetch(data); // Fetch JSON data from the URL
       const receiptData = await response.json();
       // Alert.alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+      setUserPoints((prevPoints) => prevPoints + 10); // Increase user points by 10
       navigation.navigate('Scanner2', { receiptData }); // Navigate to the Scanner2 page with the fetched data
     } catch (error) {
       console.error('Error fetching receipt data:', error);
@@ -52,7 +62,10 @@ export default function Scanner1() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}
+        >
           <Ionicons
             name='chevron-back-outline'
             size={36}
@@ -64,7 +77,9 @@ export default function Scanner1() {
       </View>
 
       <View style={styles.instructionsContainer}>
-        <Text style={{ fontSize: 25, fontWeight: '200' }}>Please align the QR Code</Text>
+        <Text style={{ fontSize: 25, fontWeight: '200' }}>
+          Please align the QR Code
+        </Text>
         <Text style={{ fontSize: 25, fontWeight: '200' }}>on your receipt</Text>
       </View>
 
@@ -74,7 +89,9 @@ export default function Scanner1() {
           style={styles.scannerContainer}
         />
       </View>
-      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
+      {scanned && (
+        <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />
+      )}
     </View>
   );
 }
@@ -82,15 +99,15 @@ export default function Scanner1() {
 const styles = StyleSheet.create({
   centeredContainer: {
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   container: {
-    flex: 1,
+    flex: 1
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginTop: 20,
+    marginTop: 20
   },
   scannerWrapper: {
     flex: 1,
@@ -102,7 +119,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   backButton: {
     position: 'absolute',
@@ -110,7 +127,7 @@ const styles = StyleSheet.create({
     left: 10,
     padding: 10,
     borderRadius: 5,
-    zIndex: 10, 
+    zIndex: 10,
     marginTop: 30
   },
   headerContainer: {
@@ -118,11 +135,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 40,
     paddingBottom: 20,
-    position: 'relative', 
+    position: 'relative'
   },
   instructionsContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 100,
-  },
+    paddingTop: 100
+  }
 });

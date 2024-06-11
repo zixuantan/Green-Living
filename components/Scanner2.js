@@ -1,8 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  Image
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
-
 
 const Scanner2 = ({ route }) => {
   const { receiptData } = route.params;
@@ -15,34 +21,31 @@ const Scanner2 = ({ route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.thankyouContainer}>
-      <Text style={styles.title}>Thank you for making</Text>
-      <Text style={styles.title}>the right choices!</Text>
+        <Text style={styles.title}>Thank you for making</Text>
+        <Text style={styles.title}>the right choices!</Text>
       </View>
       <FlatList
         data={receiptData.items}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Text style= {{fontSize: 25, fontWeight: '200'}}>{item.name}</Text>
-            <Text style={{fontSize: 25, fontWeight: '200'}}>{item.points}
-            <Image
-            source={require('../utils/sprout.png')}
-            style={{ width: 30, height: 30 }}
-          />
-          </Text>
+            <Text style={{ fontSize: 25, fontWeight: '200' }}>{item.name}</Text>
+            <Text style={{ fontSize: 25, fontWeight: '200' }}>
+              {item.points}
+              <Image
+                source={require('../utils/sprout.png')}
+                style={{ width: 30, height: 30 }}
+              />
+            </Text>
           </View>
         )}
       />
-      <View style={{alignItems:'center'}}> 
-
-      <TouchableOpacity style={styles.homeButton} onPress={returnHome}>
+      <View style={{ alignItems: 'center' }}>
+        <TouchableOpacity style={styles.homeButton} onPress={returnHome}>
           <Text style={styles.buttonText}>Return Home </Text>
           <AntDesign name='home' size={24} color='black' />
         </TouchableOpacity>
-
-
       </View>
-        
     </View>
   );
 };
@@ -50,16 +53,16 @@ const Scanner2 = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 20
   },
-  thankyouContainer:{
+  thankyouContainer: {
     alignItems: 'center',
-    marginTop: 120, 
-    marginBottom: 20,
+    marginTop: 120,
+    marginBottom: 20
   },
   title: {
     fontSize: 24,
-    fontWeight: '200',
+    fontWeight: '200'
   },
   item: {
     marginBottom: 10,
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 5,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   homeButton: {
     backgroundColor: 'rgba(211, 211, 211, 0.5)',
@@ -84,9 +87,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'black',
     textAlign: 'center',
-    fontSize: 16,
-  },
+    fontSize: 16
+  }
 });
 
 export default Scanner2;
-
