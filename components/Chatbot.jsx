@@ -7,8 +7,15 @@ import {
   Pressable,
   TouchableOpacity
 } from 'react-native';
-//import main from "../services/Bot";
+import main from "../services/Bot";
 const Chatbot = ({ navigation }) => {
+  const handleSubmission=(event)=>{
+    event.preventDefault()
+    console.log(event.nativeEvent.text)
+    output=main(event.nativeEvent.text)
+    navigation.navigate('CartPage')
+
+  }
   const handleGoBack = () => {
     navigation.goBack();
   };
@@ -105,7 +112,7 @@ const Chatbot = ({ navigation }) => {
         </Pressable>
       </View>
       <TextInput
-        /*onSubmitEditing={main}*/ style={styles.input}
+        onSubmitEditing={handleSubmission} style={styles.input}
         placeholder='I want to buy some snacks...'
       ></TextInput>
     </View>
