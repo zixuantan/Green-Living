@@ -32,6 +32,10 @@ const Homepage = ({ navigation }) => {
         title='Go to Scanner'
         onPress={() => navigation.navigate('Scanner1')}
       />
+      <Button
+        title='Go to UserInfo'
+        onPress={() => navigation.navigate('UserInfo')}
+      />
     </View>
   );
 };

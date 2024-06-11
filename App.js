@@ -54,16 +54,16 @@ export default function App() {
             options={{ headerShown: false }}
             component={Scanner2}
           />
-          <Stack.Screen 
-              name="ShoppingPage"
-              options = {{headerShown: false}}
-              component={ShoppingPage} 
-            />
-            <Stack.Screen 
-              name="CartPage" 
-              options = {{headerShown: false}} 
-              component={CartPage} 
-            />
+          <Stack.Screen
+            name='ShoppingPage'
+            options={{ headerShown: false }}
+            component={ShoppingPage}
+          />
+          <Stack.Screen
+            name='CartPage'
+            options={{ headerShown: false }}
+            component={CartPage}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>
