@@ -12,6 +12,8 @@ import { CartProvider } from './components/CartContext';
 import { UserPointsProvider } from './hooks/userPointsContext';
 import ShoppingPage from './components/ShoppingPage';
 import CartPage from './components/CartPage';
+import Rewards1 from './components/Rewards1';
+import Rewards2 from './components/Rewards2';
 
 const Stack = createStackNavigator();
 
@@ -65,6 +67,16 @@ export default function App() {
               name='CartPage'
               options={{ headerShown: false }}
               component={CartPage}
+            />
+            <Stack.Screen
+              name='Rewards1'
+              options={{ headerShown: false }}
+              component={Rewards1}
+            />
+            <Stack.Screen
+              name='Rewards2'
+              options={{ headerShown: false }}
+              component={Rewards2}
             />
           </Stack.Navigator>
         </NavigationContainer>
