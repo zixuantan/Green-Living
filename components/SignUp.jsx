@@ -7,7 +7,7 @@ import {
   Pressable,
   Image,
   KeyboardAvoidingView,
-  Platform,
+  Platform
 } from 'react-native';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -16,22 +16,25 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 const logoIcon = require('../utils/logo.png');
 
-const validationSchema = yup.object().shape({
-  name: yup.string().required('Name is required'),
-  email: yup.string().required('Email is required'),
-  phoneNumber: yup.string().required('Phone number is required'),
-  password: yup.string().required('Password is required'),
-}).strict();
+const validationSchema = yup
+  .object()
+  .shape({
+    name: yup.string().required('Name is required'),
+    email: yup.string().required('Email is required'),
+    phoneNumber: yup.string().required('Phone number is required'),
+    password: yup.string().required('Password is required')
+  })
+  .strict();
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
   contentContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 40,
+    paddingBottom: 40
   },
   input: {
     width: '80%',
@@ -40,15 +43,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 15,
     padding: 10,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f0f0f0'
   },
   errorInput: {
-    borderColor: 'red',
+    borderColor: 'red'
   },
   image: {
     width: 200,
     height: 200,
-    marginTop: 80,
+    marginTop: 80
   },
   formContainer: {
     backgroundColor: '#FFFFFF',
@@ -56,7 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     width: '90%',
-    marginTop: 20,
+    marginTop: 20
   },
   button: {
     backgroundColor: '#f0f0f0',
@@ -65,20 +68,20 @@ const styles = StyleSheet.create({
     marginTop: 30,
     width: '70%',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 30
   },
   buttonText: {
     color: 'black',
     fontSize: 16,
-    fontWeight: '400',
-  },
+    fontWeight: '400'
+  }
 });
 
 const initialValues = {
   name: '',
   email: '',
   phoneNumber: '',
-  password: '',
+  password: ''
 };
 
 const SignUp = ({ navigation }) => {
@@ -90,18 +93,17 @@ const SignUp = ({ navigation }) => {
           console.error('Signup failed:', err);
           return;
         }
-        console.log('Signup success:', result);
         navigation.replace('Login');
       });
     } catch (e) {
-      console.log('An error occurred:', e);
+      console.error('An error occurred:', e);
     }
   };
 
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit,
+    onSubmit
   });
 
   return (
@@ -112,11 +114,13 @@ const SignUp = ({ navigation }) => {
       <KeyboardAwareScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.formContainer}>
           <Image style={styles.image} source={logoIcon} />
-          <Text style={{ width: '80%', fontSize: 16, color: '#179E24' }}>Name</Text>
+          <Text style={{ width: '80%', fontSize: 16, color: '#179E24' }}>
+            Name
+          </Text>
           <TextInput
             style={[
               styles.input,
-              formik.touched.name && formik.errors.name && styles.errorInput,
+              formik.touched.name && formik.errors.name && styles.errorInput
             ]}
             value={formik.values.name}
             onChangeText={formik.handleChange('name')}
@@ -124,11 +128,13 @@ const SignUp = ({ navigation }) => {
           {formik.touched.name && formik.errors.name && (
             <Text style={{ color: 'red' }}>{formik.errors.name}</Text>
           )}
-          <Text style={{ width: '80%', fontSize: 16, color: '#179E24' }}>Email</Text>
+          <Text style={{ width: '80%', fontSize: 16, color: '#179E24' }}>
+            Email
+          </Text>
           <TextInput
             style={[
               styles.input,
-              formik.touched.email && formik.errors.email && styles.errorInput,
+              formik.touched.email && formik.errors.email && styles.errorInput
             ]}
             value={formik.values.email}
             onChangeText={formik.handleChange('email')}
@@ -136,11 +142,15 @@ const SignUp = ({ navigation }) => {
           {formik.touched.email && formik.errors.email && (
             <Text style={{ color: 'red' }}>{formik.errors.email}</Text>
           )}
-          <Text style={{ width: '80%', fontSize: 16, color: '#179E24' }}>Phone Number</Text>
+          <Text style={{ width: '80%', fontSize: 16, color: '#179E24' }}>
+            Phone Number
+          </Text>
           <TextInput
             style={[
               styles.input,
-              formik.touched.phoneNumber && formik.errors.phoneNumber && styles.errorInput,
+              formik.touched.phoneNumber &&
+                formik.errors.phoneNumber &&
+                styles.errorInput
             ]}
             value={formik.values.phoneNumber}
             onChangeText={formik.handleChange('phoneNumber')}
@@ -148,11 +158,15 @@ const SignUp = ({ navigation }) => {
           {formik.touched.phoneNumber && formik.errors.phoneNumber && (
             <Text style={{ color: 'red' }}>{formik.errors.phoneNumber}</Text>
           )}
-          <Text style={{ width: '80%', fontSize: 16, color: '#179E24' }}>Password</Text>
+          <Text style={{ width: '80%', fontSize: 16, color: '#179E24' }}>
+            Password
+          </Text>
           <TextInput
             style={[
               styles.input,
-              formik.touched.password && formik.errors.password && styles.errorInput,
+              formik.touched.password &&
+                formik.errors.password &&
+                styles.errorInput
             ]}
             value={formik.values.password}
             onChangeText={formik.handleChange('password')}
@@ -171,5 +185,3 @@ const SignUp = ({ navigation }) => {
 };
 
 export default SignUp;
-
-

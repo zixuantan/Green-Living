@@ -1,5 +1,11 @@
 import React, { useContext } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { CartContext } from './CartContext';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,8 +16,13 @@ const CartPage = () => {
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
-      <Text style={styles.title}>{item.name} (x{item.quantity})</Text>
-      <TouchableOpacity onPress={() => removeFromCart(item.id)} style={styles.removeButton}>
+      <Text style={styles.title}>
+        {item.name} (x{item.quantity})
+      </Text>
+      <TouchableOpacity
+        onPress={() => removeFromCart(item.id)}
+        style={styles.removeButton}
+      >
         <Text style={styles.removeButtonText}>Remove</Text>
       </TouchableOpacity>
     </View>
@@ -20,7 +31,10 @@ const CartPage = () => {
   return (
     <View style={styles.pageContainer}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
           <Ionicons
             name='chevron-back-outline'
             size={36}
@@ -35,7 +49,7 @@ const CartPage = () => {
         <FlatList
           data={cart}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={(item) => item.id}
         />
       </View>
     </View>
@@ -46,13 +60,13 @@ const styles = StyleSheet.create({
   pageContainer: {
     flex: 1,
     backgroundColor: 'white',
-    paddingTop: 60,
+    paddingTop: 60
   },
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginBottom: 20
   },
   backButton: {
     position: 'absolute',
@@ -88,22 +102,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.05)',
     padding: 20,
     marginVertical: 8,
-    marginHorizontal: 16,
+    marginHorizontal: 16
   },
   title: {
     fontSize: 18,
-    flex: 1,
+    flex: 1
   },
   removeButton: {
     backgroundColor: 'rgba(240, 0, 0, 0.6)',
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 5
   },
   removeButtonText: {
     color: '#fff',
     fontSize: 12,
     fontWeight: 'black'
-  },
+  }
 });
 
 export default CartPage;

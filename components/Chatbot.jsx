@@ -8,7 +8,7 @@ import {
   Pressable,
   TouchableOpacity
 } from 'react-native';
-import main from "../services/Bot";
+import main from '../services/Bot';
 import { Ionicons } from '@expo/vector-icons';
 import { CartContext } from './CartContext'; // Import CartContext
 
@@ -18,9 +18,7 @@ const Chatbot = ({ navigation }) => {
 
   const handleSubmission = async (event) => {
     event.preventDefault();
-    console.log(event.nativeEvent.text);
     const output = await main(event.nativeEvent.text);
-    console.log(output);
     navigation.navigate('ShoppingPage', { output: output });
   };
 
@@ -114,10 +112,7 @@ const Chatbot = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity onPress={handleCartPress}>
           <View>
-            <Image
-              style={styles.cart}
-              source={require('../assets/cart.png')}
-            />
+            <Image style={styles.cart} source={require('../assets/cart.png')} />
             {totalCartItems > 0 && (
               <View style={styles.badgeContainer}>
                 <Text style={styles.badgeText}>{totalCartItems}</Text>
@@ -127,11 +122,15 @@ const Chatbot = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={styles.middleContainer}>
-        <Image
-          style={styles.icons}
-          source={require('../utils/tree.png')}
-        />
-        <Text style={{ marginTop: 15, fontSize: 18, marginBottom: 25, color: '#179E24' }}>
+        <Image style={styles.icons} source={require('../utils/tree.png')} />
+        <Text
+          style={{
+            marginTop: 15,
+            fontSize: 18,
+            marginBottom: 25,
+            color: '#179E24'
+          }}
+        >
           What do you want to buy today?
         </Text>
       </View>
@@ -156,7 +155,8 @@ const Chatbot = ({ navigation }) => {
         </Pressable>
       </View>
       <TextInput
-        onSubmitEditing={handleSubmission} style={styles.input}
+        onSubmitEditing={handleSubmission}
+        style={styles.input}
         placeholder='I want to buy some snacks...'
       />
     </View>
