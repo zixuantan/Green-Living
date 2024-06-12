@@ -63,10 +63,9 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   buttonText: {
-    color:'#179E24',
+    color: '#179E24',
     fontSize: 16,
     fontWeight: '600'
-    
   },
   linkText: {
     color: 'black',
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
   signUpText: {
     marginTop: 3,
     fontSize: 16,
-    color:'#179E24',
+    color: '#179E24',
     fontWeight: '300'
   },
   signUpLink: {
@@ -100,11 +99,10 @@ const Login = ({ navigation }) => {
           console.error('Login failed:', err);
           return;
         }
-        console.log('Login success:', result);
         navigation.replace('Main');
       });
     } catch (e) {
-      console.log('An error occurred:', e);
+      console.error('An error occurred:', e);
     }
   };
 
@@ -122,7 +120,16 @@ const Login = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.formContainer}>
         <Image style={styles.image} source={logoIcon} />
-        <Text style={{ width: '80%', fontSize: 20, color:'#179E24', fontWeight:'300' }}>Email/Phone Number</Text>
+        <Text
+          style={{
+            width: '80%',
+            fontSize: 20,
+            color: '#179E24',
+            fontWeight: '300'
+          }}
+        >
+          Email/Phone Number
+        </Text>
         <TextInput
           style={[
             styles.input,
@@ -136,7 +143,16 @@ const Login = ({ navigation }) => {
         {formik.touched.username && formik.errors.username && (
           <Text style={{ color: 'red' }}>{formik.errors.username}</Text>
         )}
-        <Text style={{ width: '80%', fontSize: 20, color:'#179E24', fontWeight: '300' }}>Password</Text>
+        <Text
+          style={{
+            width: '80%',
+            fontSize: 20,
+            color: '#179E24',
+            fontWeight: '300'
+          }}
+        >
+          Password
+        </Text>
         <TextInput
           style={[
             styles.input,
@@ -160,7 +176,7 @@ const Login = ({ navigation }) => {
           Click{' '}
           <Text
             onPress={create}
-            style={{ color:'#179E24', textDecorationLine: 'underline' }}
+            style={{ color: '#179E24', textDecorationLine: 'underline' }}
           >
             here
           </Text>{' '}

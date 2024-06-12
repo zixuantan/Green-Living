@@ -22,17 +22,21 @@ const MainPage = ({ navigation }) => {
   const ProgressBar = ({ userPoints }) => {
     return (
       <>
-        <Text style={{marginTop: 40, fontWeight: '400', color: 'black'}}>Level 1</Text>
-        
+        <Text style={{ marginTop: 40, fontWeight: '400', color: 'black' }}>
+          Level 1
+        </Text>
+
         <View style={styles.progressContainer}>
           <View style={styles.progressBarContainer}>
             <View
               style={[styles.progressBarInner, { width: `${userPoints}%` }]}
             />
           </View>
-          <Image source={sproutIcon}/>
+          <Image source={sproutIcon} />
         </View>
-        <Text style={{color: 'black'}}>{100 - userPoints} points to the next level</Text>
+        <Text style={{ color: 'black' }}>
+          {100 - userPoints} points to the next level
+        </Text>
       </>
     );
   };
@@ -84,7 +88,7 @@ const MainPage = ({ navigation }) => {
             color: 'black'
           }}
         >
-          Christopher's 
+          Christopher's
         </Text>
         <Text
           style={{
@@ -102,11 +106,8 @@ const MainPage = ({ navigation }) => {
       </View>
 
       <View style={styles.contentContainer2}>
-      <Table />
-
-
+        <Table />
       </View>
-  
     </ScrollView>
   );
 };
@@ -208,6 +209,5 @@ const styles = StyleSheet.create({
     color: 'black'
   }
 });
-
 
 export default MainPage;
