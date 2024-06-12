@@ -45,7 +45,7 @@ const CartPage = () => {
 const styles = StyleSheet.create({
   pageContainer: {
     flex: 1,
-    backgroundColor: '#d5fccf',
+    backgroundColor: 'white',
     paddingTop: 60,
   },
   headerContainer: {
@@ -68,12 +68,12 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: '300',
     textAlign: 'center',
-    color: '#179E24',
+    color: 'black',
     flex: 1, // Take remaining space
     marginTop: 9
   },
   cartListContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(213, 252, 207, 0.25)',
     margin: 16,
     borderRadius: 20,
     padding: 10,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#D9D9D9',
+    backgroundColor: 'rgba(0, 0, 0, 0.05)',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -95,13 +95,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   removeButton: {
-    backgroundColor: '#FF0000',
+    backgroundColor: 'rgba(240, 0, 0, 0.6)',
     padding: 10,
     borderRadius: 5,
   },
   removeButtonText: {
     color: '#fff',
     fontSize: 12,
+    fontWeight: 'black'
   },
 });
 

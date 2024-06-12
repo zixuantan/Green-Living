@@ -22,7 +22,7 @@ const MainPage = ({ navigation }) => {
   const ProgressBar = ({ userPoints }) => {
     return (
       <>
-        <Text style={{marginTop: 40, fontWeight: '400', color: '#179E24'}}>Level 1</Text>
+        <Text style={{marginTop: 40, fontWeight: '400', color: 'black'}}>Level 1</Text>
         
         <View style={styles.progressContainer}>
           <View style={styles.progressBarContainer}>
@@ -32,7 +32,7 @@ const MainPage = ({ navigation }) => {
           </View>
           <Image source={sproutIcon}/>
         </View>
-        <Text style={{color: '#179E24'}}>{100 - userPoints} points to the next level</Text>
+        <Text style={{color: 'black'}}>{100 - userPoints} points to the next level</Text>
       </>
     );
   };
@@ -81,7 +81,7 @@ const MainPage = ({ navigation }) => {
             marginVertical: 20,
             textAlign: 'center',
             fontWeight: 'bold',
-            color: '#179E24'
+            color: 'black'
           }}
         >
           Christopher's 
@@ -92,7 +92,7 @@ const MainPage = ({ navigation }) => {
             marginTop: -10,
             textAlign: 'center',
             fontWeight: 'bold',
-            color: '#179E24'
+            color: 'black'
           }}
         >
           Environmental Impact
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     margin: 20,
     elevation: 10,
-    // shadowColor: '#179E24',
+    // shadowColor: 'black',
     // shadowOpacity: 0.3,
     // shadowRadius: 10,
     // shadowOffset: { width: 0, height: 5 },
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     fontWeight: '400',
-    color: '#179E24'
+    color: 'black'
   }
 });
 

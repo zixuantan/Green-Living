@@ -1,16 +1,22 @@
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Dashboard1 from './Dashboard1';
 import Rewards1 from './Rewards1';
-import Rewards2 from './Rewards2';
 import MainPage from './MainPage';
 import Scanner1 from './Scanner1';
 import CartPage from './CartPage';
 import UserInfo from './UserInfo';
+import { CartContext } from './CartContext';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
+  const { cart } = useContext(CartContext);
+
+  const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -37,10 +43,21 @@ const BottomTabNavigator = () => {
             default:
               iconName = 'home';
           }
-          return <Ionicons name={iconName} size={size} color={color} />;
-        }
+
+          return (
+            <View>
+              <Ionicons name={iconName} size={size} color={color} />
+              {route.name === 'Shopping' && totalCartItems > 0 && (
+                <View style={styles.badgeContainer}>
+                  <Text style={styles.badgeText}>{totalCartItems}</Text>
+                </View>
+              )}
+            </View>
+          );
+        },
+        tabBarActiveTintColor: '#179E24',
+        tabBarInactiveTintColor: 'gray'
       })}
-      tabBarOptions={{ activeTintColor: '#179E24', inactiveTintColor: 'gray' }}
     >
       <Tab.Screen name='Home' component={MainPage} />
       <Tab.Screen name='Shopping' component={CartPage} />
@@ -51,5 +68,24 @@ const BottomTabNavigator = () => {
     </Tab.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  badgeContainer: {
+    position: 'absolute',
+    top: -4,
+    right: -12,
+    backgroundColor: 'red',
+    borderRadius: 8,
+    width: 16,
+    height: 16,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  badgeText: {
+    color: 'white',
+    fontSize: 10,
+    fontWeight: 'bold'
+  }
+});
 
 export default BottomTabNavigator;

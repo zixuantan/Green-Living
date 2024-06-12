@@ -88,7 +88,7 @@ const Rewards2 = ({ navigation }) => {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              backgroundColor: 'rgba(211, 211, 211, 0.3)',
               borderRadius: 10,
               padding: 2,
               width: 100,
@@ -156,7 +156,7 @@ const Rewards2 = ({ navigation }) => {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              backgroundColor: 'rgba(211, 211, 211, 0.3)',
               borderRadius: 10,
               padding: 2,
               width: 100,
@@ -246,7 +246,7 @@ const Rewards2 = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#A4F59D'
+    backgroundColor: 'white'
   },
   headerContainer: {
     justifyContent: 'center',
@@ -260,18 +260,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 40,
     borderRadius: 10,
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(213, 252, 207, 0.25)',
     margin: 20,
     elevation: 5,
-    shadowColor: 'black',
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
     paddingBottom: 100
   },
 
   rowContainer: {
     flexDirection: 'row',
-    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    backgroundColor: 'rgba(211, 211, 211, 0.3)',
     borderRadius: 10,
     padding: 10,
     alignItems: 'center',
@@ -287,7 +284,7 @@ const styles = StyleSheet.create({
   },
 
   nextButton: {
-    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    backgroundColor: 'rgba(211, 211, 211, 0.3)',
     borderRadius: 10,
     padding: 10,
     width: 250,
@@ -297,7 +294,7 @@ const styles = StyleSheet.create({
   },
 
   homeButton: {
-    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    backgroundColor: 'rgba(211, 211, 211, 0.3)',
     borderRadius: 10,
     padding: 10,
     marginTop: 30,

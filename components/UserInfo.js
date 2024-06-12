@@ -40,7 +40,7 @@ const UserInfo = () => {
           source={{
             uri: 'https://s3-alpha-sig.figma.com/img/5a71/4866/6537c4366e364a3cfed32fbaedc30ae2?Expires=1719187200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=W3CZ6K0eAVDbNk3mjQhmb3tI-6Gnp-UACyogqgasQ7lnBjzZAraDyx~cEBBOju00~EC1NDT7rTPijzMmCfUsEiV0QN93enYGadKfFNDHGuR5MrISYnypaXQUjtQInoWk9~Bvre-rbltemF72PEulE-n11ZkB1FbUuKlvGFlJWE6z~J4o2~WSK4cTymtmTPZ~mwCryDvBWpxltdTQJA35l5T~N3~6zo0WG8hwEurSKlx3BxB05hhL2T~G0C3M2gPT64i6I93tbW6oxRwYswuCE9tfKz31uoVzICZGFRxpKL6hki9dSUY5ytGU8uuvwPX8pt20ICBiVnQt2Ed~Am27oA__'
           }}
-          style={styles.profilePic}
+          style={[styles.profilePic, {transform: [{scale: 1}] }, {resizeMode:"contain"}]}
         />
         <Text style={styles.name}>Christopher</Text>
         <Text style={styles.email}>Email: Christopher123@gmail.com</Text>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#B4F8C8',
+    backgroundColor: 'white',
     padding: 20
   },
   backButton: {
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(213, 252, 207, 0.25)',
     borderRadius: 10,
     padding: 20,
     marginTop: 60,
@@ -112,14 +112,15 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 5
+    marginBottom: 5,
+    color: 'black'
   },
   email: {
     fontSize: 16,
-    color: '#555'
+    color: 'black',
   },
   accountDetails: {
-    backgroundColor: '#F0F0F0',
+    backgroundColor: 'rgba(213, 252, 207, 0.25)',
     borderRadius: 10,
     padding: 20,
     width: '90%',
@@ -127,10 +128,11 @@ const styles = StyleSheet.create({
   },
   detailText: {
     fontSize: 16,
-    marginBottom: 10
+    marginBottom: 10,
+    color: 'black'
   },
   section: {
-    backgroundColor: '#F0F0F0',
+    backgroundColor: 'rgba(213, 252, 207, 0.25)',
     borderRadius: 10,
     padding: 20,
     width: '90%',
@@ -139,11 +141,14 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 10
+    marginBottom: 10,
+    color: 'black'
   },
   goalText: {
+    fontWeight: 'bold',
     fontSize: 16,
-    marginBottom: 5
+    marginBottom: 5,
+    color: 'black'
   },
   logoutButton: {
     marginTop: 20
