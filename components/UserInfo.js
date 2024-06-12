@@ -7,8 +7,7 @@ import {
   ScrollView,
   TextInput,
   Button,
-  TouchableOpacity,
-  Alert
+  TouchableOpacity
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -40,7 +39,11 @@ const UserInfo = () => {
           source={{
             uri: 'https://s3-alpha-sig.figma.com/img/5a71/4866/6537c4366e364a3cfed32fbaedc30ae2?Expires=1719187200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=W3CZ6K0eAVDbNk3mjQhmb3tI-6Gnp-UACyogqgasQ7lnBjzZAraDyx~cEBBOju00~EC1NDT7rTPijzMmCfUsEiV0QN93enYGadKfFNDHGuR5MrISYnypaXQUjtQInoWk9~Bvre-rbltemF72PEulE-n11ZkB1FbUuKlvGFlJWE6z~J4o2~WSK4cTymtmTPZ~mwCryDvBWpxltdTQJA35l5T~N3~6zo0WG8hwEurSKlx3BxB05hhL2T~G0C3M2gPT64i6I93tbW6oxRwYswuCE9tfKz31uoVzICZGFRxpKL6hki9dSUY5ytGU8uuvwPX8pt20ICBiVnQt2Ed~Am27oA__'
           }}
-          style={[styles.profilePic, {transform: [{scale: 1}] }, {resizeMode:"contain"}]}
+          style={[
+            styles.profilePic,
+            { transform: [{ scale: 1 }] },
+            { resizeMode: 'contain' }
+          ]}
         />
         <Text style={styles.name}>Christopher</Text>
         <Text style={styles.email}>Email: Christopher123@gmail.com</Text>
@@ -117,7 +120,7 @@ const styles = StyleSheet.create({
   },
   email: {
     fontSize: 16,
-    color: 'black',
+    color: 'black'
   },
   accountDetails: {
     backgroundColor: 'rgba(213, 252, 207, 0.25)',

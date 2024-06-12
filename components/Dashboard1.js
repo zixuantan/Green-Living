@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 360,
     marginBottom: 40,
-    paddingBottom: 30,
+    paddingBottom: 30
   },
 
   specialContainer: {
