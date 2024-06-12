@@ -15,8 +15,6 @@ const sproutIcon = require('../utils/sprout.png');
 const MainPage = ({ navigation }) => {
   const { userPoints } = useContext(UserPointsContext);
 
-  console.log(userPoints);
-
   const handleChatbotNav = () => {
     navigation.navigate('Chatbot');
   };
@@ -33,7 +31,7 @@ const MainPage = ({ navigation }) => {
           </View>
           <Image source={sproutIcon} />
         </View>
-        <Text>30 points to the next level</Text>
+        <Text>{100 - userPoints} points to the next level</Text>
       </>
     );
   };
