@@ -11,7 +11,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { loginUser } from '../services/LoginService';
 
-const logoIcon = require('../utils/default.png');
+const logoIcon = require('../utils/logo.png');
 
 const validationSchema = yup
   .object()
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#A4F59D'
+    backgroundColor: '#FBFEFB'
   },
   input: {
     width: '80%',
@@ -54,27 +54,32 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   button: {
-    backgroundColor: '#d3d3d3',
+    backgroundColor: '#f6f6f6',
     padding: 10,
     borderRadius: 10,
     marginTop: 30,
-    width: '40%',
+    width: '70%',
     alignItems: 'center',
     marginBottom: 30
   },
   buttonText: {
-    color: 'black',
-    fontSize: 16
+    color:'#179E24',
+    fontSize: 16,
+    fontWeight: '600'
+    
   },
   linkText: {
-    color: 'blue',
+    color: 'black',
     marginTop: 10,
     marginBottom: 7,
-    textDecorationLine: 'underline'
+    textDecorationLine: 'underline',
+    fontWeight: '300'
   },
   signUpText: {
     marginTop: 3,
-    fontSize: 22
+    fontSize: 16,
+    color:'#179E24',
+    fontWeight: '300'
   },
   signUpLink: {
     color: 'blue'
@@ -117,7 +122,7 @@ const Login = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.formContainer}>
         <Image style={styles.image} source={logoIcon} />
-        <Text style={{ width: '80%', fontSize: 20 }}>Email/Phone Number</Text>
+        <Text style={{ width: '80%', fontSize: 20, color:'#179E24', fontWeight:'300' }}>Email/Phone Number</Text>
         <TextInput
           style={[
             styles.input,
@@ -131,7 +136,7 @@ const Login = ({ navigation }) => {
         {formik.touched.username && formik.errors.username && (
           <Text style={{ color: 'red' }}>{formik.errors.username}</Text>
         )}
-        <Text style={{ width: '80%', fontSize: 20 }}>Password</Text>
+        <Text style={{ width: '80%', fontSize: 20, color:'#179E24', fontWeight: '300' }}>Password</Text>
         <TextInput
           style={[
             styles.input,
@@ -148,14 +153,14 @@ const Login = ({ navigation }) => {
         )}
         <Text style={styles.linkText}>Forgot password?</Text>
         <Pressable onPress={formik.handleSubmit} style={styles.button}>
-          <Text style={styles.buttonText}>Let's go!</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </Pressable>
         <Text style={styles.signUpText}> No account yet?</Text>
         <Text style={styles.signUpText}>
           Click{' '}
           <Text
             onPress={create}
-            style={{ color: 'blue', textDecorationLine: 'underline' }}
+            style={{ color:'#179E24', textDecorationLine: 'underline' }}
           >
             here
           </Text>{' '}

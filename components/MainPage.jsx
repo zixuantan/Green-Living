@@ -25,6 +25,7 @@ const MainPage = ({ navigation }) => {
     return (
       <>
         <Text style={{marginTop: 40, fontWeight: '200'}}>Level 1</Text>
+        
         <View style={styles.progressContainer}>
           <View style={styles.progressBarContainer}>
             <View
