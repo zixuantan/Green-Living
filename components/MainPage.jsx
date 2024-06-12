@@ -15,8 +15,6 @@ const sproutIcon = require('../utils/sprout.png');
 const MainPage = ({ navigation }) => {
   const { userPoints } = useContext(UserPointsContext);
 
-  console.log(userPoints);
-
   const handleChatbotNav = () => {
     navigation.navigate('Chatbot');
   };
