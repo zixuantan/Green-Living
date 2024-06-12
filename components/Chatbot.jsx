@@ -8,8 +8,8 @@ import {
   Pressable,
   TouchableOpacity
 } from 'react-native';
-import main from "../services/Bot";
 import { Ionicons } from '@expo/vector-icons';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { CartContext } from './CartContext'; // Import CartContext
 
 const Chatbot = ({ navigation }) => {
@@ -102,7 +102,7 @@ const Chatbot = ({ navigation }) => {
   });
 
   return (
-    <View style={styles.container}>
+    <KeyboardAwareScrollView style={{ flex: 1 }} contentContainerStyle={styles.container} extraScrollHeight={100}>
       <View style={styles.topContainer}>
         <TouchableOpacity onPress={handleGoBack}>
           <Ionicons
@@ -159,7 +159,7 @@ const Chatbot = ({ navigation }) => {
         onSubmitEditing={handleSubmission} style={styles.input}
         placeholder='I want to buy some snacks...'
       />
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 
