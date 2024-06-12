@@ -32,7 +32,7 @@ const MainPage = ({ navigation }) => {
           </View>
           <Image source={sproutIcon}/>
         </View>
-        <Text style={{marginBottom: -20, fontWeight: '200'}}>30 points to the next level</Text>
+        <Text>{100 - userPoints} points to the next level</Text>
       </>
     );
   };
