@@ -5,24 +5,22 @@ import { CartContext } from './CartContext';
 import SproutImage from '../assets/sprout.png';
 import CartImage from '../assets/cart.png';
 
-
-const products = [
-  { id: '1', name: 'Brand A', reward: '+10', details: 'Carbon Footprint: 8kg CO2e \n\nThat is 14% higher than average!' },
-  { id: '2', name: 'Brand B', reward: '+20', details: 'Carbon Footprint: 7kg CO2e \n\nThat is the average output!' },
-  { id: '3', name: 'Brand C', reward: '+30', details: 'Carbon Footprint: 10kg CO2e \n\nThat is 43% higher than average!' },
-  { id: '4', name: 'Brand D', reward: '+40', details: 'Carbon Footprint: 5kg CO2e \n\nThat is 29% below than average!' },
-  { id: '5', name: 'Brand E', reward: '+50', details: 'Carbon Footprint: 11kg CO2e \n\nThat is 57% below than average!' },
-];
-
-const ShoppingPage = ({route}) => {
+const ShoppingPage = ({ route }) => {
   const { cart, addToCart } = useContext(CartContext);
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  console.log(route.params)
-  console.log(route.params.output)
+
+  // Map route.params.output to the products array
+  const products = route.params.output.map((item, index) => ({
+    id: index.toString(), // Ensure each item has a unique id
+    name: item["Brand"],
+    reward: "+10",
+    details: `Carbon Footprint: ${item["Carbon Footprint"]} \n\n${item["Comparison to average"]}`,
+  }));
+
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.item} onPress={() => { setSelectedItem(item); setModalVisible(true); }}>
       <Text style={styles.title}>{item.name}</Text>
@@ -39,10 +37,11 @@ const ShoppingPage = ({route}) => {
   return (
     <View style={styles.pageContainer}>
       <View style={styles.listContainer}>
-      <Text style={styles.header}>Sure, here are the more sustainable options you can choose from!</Text>
+        <Text style={styles.header}>Sure, here are the more sustainable options you can choose from!</Text>
         <FlatList
-          data={route.params.output}
+          data={products}
           renderItem={renderItem}
+          keyExtractor={item => item.id}
           contentContainerStyle={styles.flatListContent}
         />
       </View>
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     margin: 16,
     borderRadius: 20,
     padding: 10,
-    marginVertical:20,
+    marginVertical: 20,
   },
   flatListContent: {
     paddingBottom: 30,  // Ensure content doesn't get cut off by the cart button
