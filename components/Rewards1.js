@@ -45,7 +45,7 @@ const Rewards1 = ({ navigation }) => {
           <Text> +5 </Text>
           <Image
             source={require('../utils/sprout.png')}
-            style={{ width: 30, height: 30 }}
+            style={{ width: 30, height: 30, marginLeft: -56 }}
           />
         </View>
 
@@ -54,7 +54,7 @@ const Rewards1 = ({ navigation }) => {
           <Text> +3 </Text>
           <Image
             source={require('../utils/sprout.png')}
-            style={{ width: 30, height: 30 }}
+            style={{ width: 30, height: 30, marginLeft: -63 }}
           />
         </View>
 
@@ -63,7 +63,7 @@ const Rewards1 = ({ navigation }) => {
           <Text> +5 </Text>
           <Image
             source={require('../utils/sprout.png')}
-            style={{ width: 30, height: 30 }}
+            style={{ width: 30, height: 30, marginLeft: -67 }}
           />
         </View>
 
@@ -72,7 +72,7 @@ const Rewards1 = ({ navigation }) => {
           <Text> +2 </Text>
           <Image
             source={require('../utils/sprout.png')}
-            style={{ width: 30, height: 30 }}
+            style={{ width: 30, height: 30, marginLeft: -57 }}
           />
         </View>
 
@@ -81,7 +81,7 @@ const Rewards1 = ({ navigation }) => {
           <Text> +6 </Text>
           <Image
             source={require('../utils/sprout.png')}
-            style={{ width: 30, height: 30 }}
+            style={{ width: 30, height: 30, marginLeft: -52 }}
           />
         </View>
 
@@ -95,7 +95,7 @@ const Rewards1 = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#A4F59D'
+    backgroundColor: 'white'
   },
   headerContainer: {
     justifyContent: 'center',
@@ -109,17 +109,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 40,
     borderRadius: 10,
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(213, 252, 207, 0.25)',
     margin: 20,
     elevation: 5,
-    shadowColor: 'black',
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
     paddingBottom: 100
   },
 
   rowContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     backgroundColor: 'rgba(211, 211, 211, 0.5)',
     borderRadius: 10,
     padding: 10,

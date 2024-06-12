@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 28,
     fontFamily: 'Nunito-Bold',
-    color: '#179E24'
+    color: 'black'
   },
 
   nextButton: {

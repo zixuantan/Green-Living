@@ -15,11 +15,12 @@ const ShoppingPage = ({ route }) => {
 
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  // Map route.params.output to the products array
+  const rewards = ["+24", "+36", "+51"]
+
   const products = route.params.output.map((item, index) => ({
     id: index.toString(), // Ensure each item has a unique id
     name: item["Brand"],
-    reward: "+10",
+    reward: rewards[index], // Assign the pre-generated random reward
     details: `Carbon Footprint: ${item["Carbon Footprint"]} \n\n${item["Comparison to average"]}`,
   }));
 
@@ -38,7 +39,7 @@ const ShoppingPage = ({ route }) => {
 
   return (
     <View style={styles.pageContainer}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate("Chatbot")}>
           <Ionicons
             name='chevron-back-outline'
             size={36}
@@ -86,7 +87,7 @@ const ShoppingPage = ({ route }) => {
 const styles = StyleSheet.create({
   pageContainer: {
     flex: 1,
-    backgroundColor: '#A4F59D',
+    backgroundColor: 'white',
     paddingTop: 100,
   },
   header: {
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   listContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(213, 252, 207, 0.25)',
     margin: 16,
     borderRadius: 20,
     padding: 10,
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#D9D9D9',
+    backgroundColor: 'rgba(0, 0, 0, 0.05)',
     padding: 20,
     marginVertical: 8,
     borderRadius: 10,
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   addButton: {
-    backgroundColor: '#A4F59D',
+    backgroundColor: 'rgba(213, 252, 207, 0.8)',
     padding: 10,
     borderRadius: 5,
   },
