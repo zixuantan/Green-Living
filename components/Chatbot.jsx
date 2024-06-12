@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 import main from "../services/Bot";
 const Chatbot = ({ navigation }) => {
-  const handleSubmission=(event)=>{
+  const handleSubmission=async(event)=>{
     event.preventDefault()
     console.log(event.nativeEvent.text)
-    output=main(event.nativeEvent.text)
-    navigation.navigate('CartPage')
-
+    const output= await main(event.nativeEvent.text)
+    console.log(output)
+    navigation.navigate('ShoppingPage', { output: output });
   }
   const handleGoBack = () => {
     navigation.goBack();

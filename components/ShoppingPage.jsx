@@ -14,14 +14,15 @@ const products = [
   { id: '5', name: 'Brand E', reward: '+50', details: 'Carbon Footprint: 11kg CO2e \n\nThat is 57% below than average!' },
 ];
 
-const ShoppingPage = () => {
+const ShoppingPage = ({route}) => {
   const { cart, addToCart } = useContext(CartContext);
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
+  console.log(route.params)
+  console.log(route.params.output)
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.item} onPress={() => { setSelectedItem(item); setModalVisible(true); }}>
       <Text style={styles.title}>{item.name}</Text>
@@ -40,9 +41,8 @@ const ShoppingPage = () => {
       <View style={styles.listContainer}>
       <Text style={styles.header}>Sure, here are the more sustainable options you can choose from!</Text>
         <FlatList
-          data={products}
+          data={route.params.output}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
           contentContainerStyle={styles.flatListContent}
         />
       </View>

@@ -75,9 +75,10 @@ const runAssistant = async (client, message) => {
   });
   if (run.status === 'completed') {
     const messages = await client.beta.threads.messages.list(run.thread_id);
-    console.log(messages);
-    let output = JSON.parse(messages.data[0].content[0].text.value);
-    console.log(output);
+    console.log(messages)
+    var output=JSON.parse(messages.data[0].content[0].text.value)
+    console.log(output)
+    return output
   } else {
     console.log(run.status);
   }
@@ -86,6 +87,7 @@ const runAssistant = async (client, message) => {
 const main = async (message) => {
   const client = new OpenAI({ apiKey: Constants.expoConfig.extra.env });
   // const assistant = await createAssistant(client);
-  output = await runAssistant(client, message);
+  output=await runAssistant(client,message);
+  return output
 };
 export default main;
