@@ -40,7 +40,7 @@ const BottomTabNavigator = () => {
           return <Ionicons name={iconName} size={size} color={color} />;
         }
       })}
-      tabBarOptions={{ activeTintColor: 'tomato', inactiveTintColor: 'gray' }}
+      tabBarOptions={{ activeTintColor: '#179E24', inactiveTintColor: 'gray' }}
     >
       <Tab.Screen name='Home' component={MainPage} />
       <Tab.Screen name='Shopping' component={CartPage} />
