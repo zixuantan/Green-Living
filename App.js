@@ -22,7 +22,7 @@ export default function App() {
     <UserPointsProvider>
       <CartProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName='Launch'>
+          <Stack.Navigator initialRouteName='Chatbot'>
             <Stack.Screen
               name='Launch'
               options={{ headerShown: false }}
