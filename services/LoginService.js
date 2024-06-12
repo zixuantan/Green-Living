@@ -4,10 +4,6 @@ const {
   AuthenticationDetails,
   CognitoUser
 } = require('amazon-cognito-identity-js');
-// const {
-//   CognitoIdentityProviderClient,
-//   AdminConfirmSignUpCommand
-// } = require('@aws-sdk/client-cognito-identity-provider');
 
 const poolData = {
   UserPoolId: 'ap-southeast-1_seavR9fhf',
@@ -20,7 +16,7 @@ const signUpUser = async (email, password, callback) => {
   const attributeList = [];
 
   const dataEmail = {
-    Name: 'name',
+    Name: 'email',
     Value: email
   };
 
@@ -36,21 +32,6 @@ const signUpUser = async (email, password, callback) => {
       resolve(result);
     });
   });
-
-  //   const client = new CognitoIdentityProviderClient({
-  //     region: 'ap-southeast-1'
-  //   });
-
-  //   const confirmParams = {
-  //     UserPoolId: 'ap-southeast-1_seavR9fhf',
-  //     Username: email
-  //   };
-
-  //   const command = new AdminConfirmSignUpCommand(confirmParams);
-  //   const response = await client.send(command);
-
-  //   //   const response = cognitoIdentityProvider.adminConfirmSignUp(confirmParams);
-  //   console.log(response);
 
   const cognitoUser = result.user;
   callback(null, cognitoUser);

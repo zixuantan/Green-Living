@@ -1,7 +1,6 @@
 import OpenAI from 'openai';
 import Constants from 'expo-constants';
 
-
 const uploadFile = async (client, path) => {
   const form = new FormData();
   form.append('file', fs.createReadStream(path));
@@ -71,24 +70,22 @@ const runAssistant = async (client, message) => {
     content: message
   });
   let run = await client.beta.threads.runs.createAndPoll(thread.id, {
-    assistant_id: "asst_ckh9hMbrLGrcH9Sf536DQOxg"
+    assistant_id: 'asst_ckh9hMbrLGrcH9Sf536DQOxg'
     // assistant_id:assistant.id
   });
   if (run.status === 'completed') {
     const messages = await client.beta.threads.messages.list(run.thread_id);
-    console.log(messages)
-    let output=JSON.parse(messages.data[0].content[0].text.value)
-    console.log(output)
+    console.log(messages);
+    let output = JSON.parse(messages.data[0].content[0].text.value);
+    console.log(output);
   } else {
     console.log(run.status);
   }
 };
 
 const main = async (message) => {
-  const client = new OpenAI({apiKey:Constants.expoConfig.extra.env});
+  const client = new OpenAI({ apiKey: Constants.expoConfig.extra.env });
   // const assistant = await createAssistant(client);
-  output=await runAssistant(client,message);
+  output = await runAssistant(client, message);
 };
 export default main;
-
-
