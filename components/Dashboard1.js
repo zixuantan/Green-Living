@@ -141,7 +141,7 @@ const Dashboard1 = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#A4F59D'
+    backgroundColor: 'white'
   },
   headerContainer: {
     justifyContent: 'center',
@@ -153,32 +153,32 @@ const styles = StyleSheet.create({
   contentContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 40,
+    paddingTop: 15,
     borderRadius: 10,
     backgroundColor: 'white',
     margin: 20,
     elevation: 5,
-    shadowColor: 'black',
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
+    // shadowColor: 'black',
+    // shadowOpacity: 0.3,
+    // shadowRadius: 5,
     paddingBottom: 60
   },
 
   rowContainer: {
-    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    backgroundColor: 'rgba(213, 252, 207, 0.25)',
     borderRadius: 10,
     padding: 1,
     alignItems: 'center',
-    width: 310,
+    width: 360,
     marginBottom: 40,
-    paddingBottom: 30
+    paddingBottom: 30,
   },
 
   specialContainer: {
-    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    backgroundColor: 'rgba(213, 252, 207, 0.3)',
     borderRadius: 10,
     padding: 1,
-    width: 310,
+    width: 360,
     marginBottom: 40,
     paddingBottom: 20
   },
@@ -186,7 +186,8 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 20,
     fontSize: 28,
-    fontFamily: 'Nunito-Bold'
+    fontFamily: 'Nunito-Bold',
+    color: '#179E24'
   },
 
   nextButton: {

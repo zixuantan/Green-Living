@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { CartContext } from './CartContext';
 import SproutImage from '../assets/sprout.png';
 import CartImage from '../assets/cart.png';
+import { Ionicons } from '@expo/vector-icons';
+
 
 const ShoppingPage = ({ route }) => {
   const { cart, addToCart } = useContext(CartContext);
@@ -25,7 +27,7 @@ const ShoppingPage = ({ route }) => {
     <TouchableOpacity style={styles.item} onPress={() => { setSelectedItem(item); setModalVisible(true); }}>
       <Text style={styles.title}>{item.name}</Text>
       <View style={styles.itemDetails}>
-        <Text>{item.reward}</Text>
+        <Text style={{fontSize: 18, fontWeight: '200'}}>{item.reward}</Text>
         <Image source={SproutImage} style={styles.sproutImage} />
       </View>
       <TouchableOpacity style={styles.addButton} onPress={() => addToCart(item)}>
@@ -36,6 +38,14 @@ const ShoppingPage = ({ route }) => {
 
   return (
     <View style={styles.pageContainer}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Ionicons
+            name='chevron-back-outline'
+            size={36}
+            color='black'
+            style={{ marginHorizontal: 15, marginTop: -35}}
+          />
+        </TouchableOpacity>
       <View style={styles.listContainer}>
         <Text style={styles.header}>Sure, here are the more sustainable options you can choose from!</Text>
         <FlatList
@@ -90,6 +100,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     marginVertical: 20,
+    marginTop: 40,
+    height: 650,
   },
   flatListContent: {
     paddingBottom: 30,  // Ensure content doesn't get cut off by the cart button
@@ -112,8 +124,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   sproutImage: {
-    width: 20,
-    height: 20,
+    width: 20*1.5,
+    height: 20*1.5,
     marginLeft: 0,
     marginRight: 10,
   },
@@ -124,7 +136,8 @@ const styles = StyleSheet.create({
   },
   addButtonText: {
     color: '#000',
-    fontSize: 12,
+    fontSize: 15,
+    fontWeight: '200'
   },
   cartButton: {
     position: 'absolute',

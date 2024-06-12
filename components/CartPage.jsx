@@ -65,12 +65,12 @@ const styles = StyleSheet.create({
     marginTop: -20
   },
   header: {
-    fontSize: 24,
+    fontSize: 30,
     fontWeight: '300',
     textAlign: 'center',
     color: '#179E24',
     flex: 1, // Take remaining space
-    marginTop: 15
+    marginTop: 9
   },
   cartListContainer: {
     backgroundColor: '#fff',

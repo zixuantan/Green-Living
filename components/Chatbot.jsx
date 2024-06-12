@@ -8,6 +8,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 import main from "../services/Bot";
+import { Ionicons } from '@expo/vector-icons';
+
+
 const Chatbot = ({ navigation }) => {
   const handleSubmission=async(event)=>{
     event.preventDefault()
@@ -21,7 +24,7 @@ const Chatbot = ({ navigation }) => {
   };
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#A4F59D',
+      backgroundColor: 'white',
       flex: 1,
       alignItems: 'center',
       padding: 20
@@ -58,7 +61,7 @@ const Chatbot = ({ navigation }) => {
       marginTop: 150,
       borderRadius: 12,
       padding: 10,
-      backgroundColor: '#f0f0f0'
+      backgroundColor: '#f0f0f0',
     },
     clickable: {
       width: '45%',
@@ -75,7 +78,12 @@ const Chatbot = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.topContainer}>
         <TouchableOpacity onPress={handleGoBack}>
-          <Image style={styles.exit} source={require('../utils/back.png')} />
+        <Ionicons
+            name='chevron-back-outline'
+            size={36}
+            color='black'
+            style={{ marginHorizontal: 15 }}
+          />
         </TouchableOpacity>
         <Image
           style={styles.cart}
@@ -87,27 +95,27 @@ const Chatbot = ({ navigation }) => {
           style={styles.icons}
           source={require('../utils/tree.png')}
         ></Image>
-        <Text style={{ marginTop: 15, fontSize: 18, marginBottom: 25 }}>
+        <Text style={{ marginTop: 15, fontSize: 18, marginBottom: 25, color: '#179E24'}}>
           What do you want to buy today?
         </Text>
       </View>
       <View style={styles.clickContainer}>
         <Pressable style={styles.clickable}>
-          <Text>Shoes</Text>
+          <Text style={{color: '#179E24'}}>Shoes</Text>
           <Image style={styles.icons} source={require('../utils/shoe.png')} />
         </Pressable>
         <Pressable style={styles.clickable}>
-          <Text>Shirt</Text>
+          <Text style={{color: '#179E24'}}>Shirt</Text>
           <Image style={styles.icons} source={require('../utils/shirt.png')} />
         </Pressable>
       </View>
       <View style={styles.clickContainer}>
         <Pressable style={styles.clickable}>
-          <Text>Food</Text>
+          <Text style={{color: '#179E24'}}>Food</Text>
           <Image style={styles.icons} source={require('../utils/food.png')} />
         </Pressable>
         <Pressable style={styles.clickable}>
-          <Text>Phone</Text>
+          <Text style={{color: '#179E24'}}>Phone</Text>
           <Image style={styles.icons} source={require('../utils/phone.png')} />
         </Pressable>
       </View>
