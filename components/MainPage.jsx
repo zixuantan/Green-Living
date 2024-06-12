@@ -24,16 +24,16 @@ const MainPage = ({ navigation }) => {
   const ProgressBar = ({ userPoints }) => {
     return (
       <>
-        <Text>Level 1</Text>
+        <Text style={{marginTop: 40, fontWeight: '200'}}>Level 1</Text>
         <View style={styles.progressContainer}>
           <View style={styles.progressBarContainer}>
             <View
               style={[styles.progressBarInner, { width: `${userPoints}%` }]}
             />
           </View>
-          <Image source={sproutIcon} />
+          <Image source={sproutIcon}/>
         </View>
-        <Text>30 points to the next level</Text>
+        <Text style={{marginBottom: -20, fontWeight: '200'}}>30 points to the next level</Text>
       </>
     );
   };
@@ -84,7 +84,17 @@ const MainPage = ({ navigation }) => {
             fontWeight: 'bold'
           }}
         >
-          Christopher's Environmental Impact
+          Christopher's 
+        </Text>
+        <Text
+          style={{
+            fontSize: 20,
+            marginTop: -10,
+            textAlign: 'center',
+            fontWeight: 'bold'
+          }}
+        >
+          Environmental Impact
         </Text>
         <ProgressBar userPoints={userPoints} />
         <Table />
@@ -103,11 +113,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     margin: 20,
     borderRadius: 10,
-    elevation: 5,
     shadowColor: 'black',
     shadowOpacity: 0.3,
     shadowRadius: 5,
-    marginTop: 20
+    marginTop: 80
   },
 
   searchInput: {
@@ -141,7 +150,7 @@ const styles = StyleSheet.create({
   progressBarContainer: {
     flex: 1,
     height: 20,
-    backgroundColor: '#d3d3d3',
+    backgroundColor: '#F0F0F0',
     borderRadius: 10,
     overflow: 'hidden',
     marginVertical: 10
@@ -155,7 +164,7 @@ const styles = StyleSheet.create({
 
   table: {
     width: '100%',
-    marginTop: 20
+    marginTop: 80
   },
 
   tableRow: {
@@ -166,7 +175,8 @@ const styles = StyleSheet.create({
 
   tableCell: {
     fontSize: 16,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: '200'
   }
 });
 
