@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { CartContext } from './CartContext';
-import ExitImage from '../assets/exit.png';
+import { Ionicons } from '@expo/vector-icons';
 
 const CartPage = () => {
   const { cart, removeFromCart } = useContext(CartContext);
@@ -19,11 +19,19 @@ const CartPage = () => {
 
   return (
     <View style={styles.pageContainer}>
-      <Image source={ExitImage} style={styles.exitImage} />
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-      </TouchableOpacity>
-      <View style={styles.cartListContainer}>
+      <View style={styles.headerContainer}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Ionicons
+            name='chevron-back-outline'
+            size={36}
+            color='black'
+            style={{ marginHorizontal: 15 }}
+          />
+        </TouchableOpacity>
         <Text style={styles.header}>Shopping Cart</Text>
+      </View>
+
+      <View style={styles.cartListContainer}>
         <FlatList
           data={cart}
           renderItem={renderItem}
@@ -37,39 +45,41 @@ const CartPage = () => {
 const styles = StyleSheet.create({
   pageContainer: {
     flex: 1,
-    backgroundColor: '#A4F59D',
+    backgroundColor: '#d5fccf',
     paddingTop: 60,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 20,
+    left: 10,
+    backgroundColor: 'transparent',
+    padding: 10,
+    borderRadius: 5,
+    zIndex: 1,
+    marginTop: -20
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: '300',
+    textAlign: 'center',
+    color: '#179E24',
+    flex: 1, // Take remaining space
+    marginTop: 15
   },
   cartListContainer: {
     backgroundColor: '#fff',
     margin: 16,
     borderRadius: 20,
     padding: 10,
-    marginVertical:40,
+    marginVertical: 40,
     height: 580,
-  },
-  backButton: {
-    position: 'absolute',
-    top: 60,
-    left: 10,
-    backgroundColor: '#BEE3BA',
-    justifyContent: 'center',
-    padding: 30,
-    borderRadius: 5,
-    opacity: 0,
-  },
-  exitImage: {
-    top: 20,
-    left: 20,
-    height: 30,
-    width: 30,
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-    marginTop: 30,  // Adjust to avoid overlap with back button
+    marginTop: 10
   },
   item: {
     flexDirection: 'row',

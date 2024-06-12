@@ -22,7 +22,7 @@ const MainPage = ({ navigation }) => {
   const ProgressBar = ({ userPoints }) => {
     return (
       <>
-        <Text style={{marginTop: 40, fontWeight: '200'}}>Level 1</Text>
+        <Text style={{marginTop: 40, fontWeight: '400', color: '#179E24'}}>Level 1</Text>
         
         <View style={styles.progressContainer}>
           <View style={styles.progressBarContainer}>
@@ -32,7 +32,7 @@ const MainPage = ({ navigation }) => {
           </View>
           <Image source={sproutIcon}/>
         </View>
-        <Text>{100 - userPoints} points to the next level</Text>
+        <Text style={{color: '#179E24'}}>{100 - userPoints} points to the next level</Text>
       </>
     );
   };
@@ -80,7 +80,8 @@ const MainPage = ({ navigation }) => {
             fontSize: 20,
             marginVertical: 20,
             textAlign: 'center',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            color: '#179E24'
           }}
         >
           Christopher's 
@@ -90,21 +91,29 @@ const MainPage = ({ navigation }) => {
             fontSize: 20,
             marginTop: -10,
             textAlign: 'center',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            color: '#179E24'
           }}
         >
           Environmental Impact
         </Text>
         <ProgressBar userPoints={userPoints} />
-        <Table />
+        {/* <Table /> */}
       </View>
+
+      <View style={styles.contentContainer2}>
+      <Table />
+
+
+      </View>
+  
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#A4F59D'
+    backgroundColor: '#d5fccf'
   },
 
   searchContainer: {
@@ -112,9 +121,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     margin: 20,
     borderRadius: 10,
-    shadowColor: 'black',
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
+    // shadowColor: 'black',
+    // shadowOpacity: 0.3,
+    // shadowRadius: 5,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 5,
     marginTop: 80
   },
 
@@ -132,11 +143,29 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'white',
     margin: 20,
-    elevation: 5,
-    shadowColor: 'black',
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    paddingBottom: 60
+    elevation: 10,
+    // shadowColor: 'green',
+    // shadowOpacity: 0.3,
+    // shadowRadius: 10,
+    shadowOffset: { width: 0, height: 5 },
+    paddingBottom: 60,
+    marginTop: -10
+  },
+
+  contentContainer2: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: 'white',
+    margin: 20,
+    elevation: 10,
+    // shadowColor: '#179E24',
+    // shadowOpacity: 0.3,
+    // shadowRadius: 10,
+    // shadowOffset: { width: 0, height: 5 },
+    paddingBottom: 30,
+    marginTop: -10
   },
 
   progressContainer: {
@@ -149,7 +178,7 @@ const styles = StyleSheet.create({
   progressBarContainer: {
     flex: 1,
     height: 20,
-    backgroundColor: '#F0F0F0',
+    backgroundColor: '#f0f0f0',
     borderRadius: 10,
     overflow: 'hidden',
     marginVertical: 10
@@ -163,7 +192,7 @@ const styles = StyleSheet.create({
 
   table: {
     width: '100%',
-    marginTop: 80
+    marginTop: 30
   },
 
   tableRow: {
@@ -175,8 +204,10 @@ const styles = StyleSheet.create({
   tableCell: {
     fontSize: 16,
     textAlign: 'center',
-    fontWeight: '200'
+    fontWeight: '400',
+    color: '#179E24'
   }
 });
+
 
 export default MainPage;
