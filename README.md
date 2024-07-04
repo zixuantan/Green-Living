@@ -1,10 +1,10 @@
 # Project Green Living: Sustainable Shopping Companion App
 
+_This project won 1st runner-up in the Best Minimum Viable Product Category_
+
 Finalist entry for DSTA BrainHack 2024 CODE_EXP: A sustainable shopping companion app aimed at integrating environmental awareness into the user's shopping experience, empowering users to make eco-friendly choices more effortlessly.
 
 ![Project Screenshot](./assets/app_sample.jpeg)
-
-_This project won 1st runner-up in the Best Minimum Viable Product Category_
 
 ## Overview
 
